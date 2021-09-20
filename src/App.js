@@ -1,26 +1,26 @@
-import React, {useState} from 'react';
-import Header from './Header';
-import Pupils from './Pupils';
+import React, { useState } from "react";
+import Header from "./Header";
+import Pupils from "./Pupils";
 
-const pupils =[
-    {
-        id: 1,
-        name: 'Ion',
-        location : 'Braila',
-        numberOfLikes : 0
-    },
-    {   
-        id : 2,
-        name: 'Mihai',
-        location : 'Botosani',
-        numberOfLikes : 0
-    },
-    {   
-        id : 3,
-        name: 'Gabriela',
-        location : 'Bucuresti',
-        numberOfLikes : 0
-    }
+const pupils = [
+  {
+    id: 1,
+    name: "Ion",
+    location: "Braila",
+    numberOfLikes: 0,
+  },
+  {
+    id: 2,
+    name: "Mihai",
+    location: "Botosani",
+    numberOfLikes: 0,
+  },
+  {
+    id: 3,
+    name: "Gabriela",
+    location: "Bucuresti",
+    numberOfLikes: 0,
+  },
 ];
 /*
 class App extends React.Component{
@@ -40,19 +40,29 @@ class App extends React.Component{
 }
 */
 export default () => {
-    const [selected,setSelected] = useState(pupils[0]);
-    const [selectedNumberOfLikes,setSelectedNumberOfLikes] = useState(0);
-    //console.log(selected);
-    return (
-        <div>
-            <Header/>
-            <Pupils 
-            items = {pupils}
-            selectedNumberOfLikes = {selectedNumberOfLikes}
-            onSelectedChange = {setSelectedNumberOfLikes}
-            />
-
-            
-        </div>
-    )
+  const [selected, setSelected] = useState(pupils[0]);
+  const [selectedNumberOfLikes, setSelectedNumberOfLikes] = useState(0);
+  //console.log(selected);
+  return (
+    <div className="container">
+      <Header />
+      <table class="ui celled padded table">
+        <thead>
+          <tr>
+            <th className="single line center aligned">Nume</th>
+            <th className="single line center aligned">Localitate</th>
+            <th className="single line center aligned">Numar de like-uri</th>
+            <th className="single line center aligned"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <Pupils
+            items={pupils}
+            selectedNumberOfLikes={selectedNumberOfLikes}
+            onSelectedChange={setSelectedNumberOfLikes}
+          />
+        </tbody>
+      </table>
+    </div>
+  );
 };
